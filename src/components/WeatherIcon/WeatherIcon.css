@@ -1,0 +1,41 @@
+.wicon {
+  flex-shrink: 0;
+  color: var(--text-secondary);
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.15));
+}
+.wicon--clear {
+  color: var(--amber-400);
+}
+.wicon--clear.wicon--night {
+  color: #c7d2fe;
+}
+.wicon--cloudy {
+  color: #cbd5e1;
+}
+[data-theme='light'] .wicon--cloudy {
+  color: #64748b;
+}
+.wicon--overcast {
+  color: #94a3b8;
+}
+.wicon--fog {
+  color: #a5b4cf;
+}
+.wicon--rain {
+  color: var(--sky-400);
+}
+.wicon--freezing {
+  color: #a5f3fc;
+}
+[data-theme='light'] .wicon--freezing {
+  color: #0891b2;
+}
+.wicon--snow {
+  color: #e0f2fe;
+}
+[data-theme='light'] .wicon--snow {
+  color: #0284c7;
+}
+.wicon--storm {
+  color: #a78bfa;
+}

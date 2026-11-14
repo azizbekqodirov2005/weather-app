@@ -1,0 +1,77 @@
+.install-banner {
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr);
+  grid-template-areas:
+    'icon text'
+    'actions actions';
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--accent-ring);
+  background: linear-gradient(135deg, var(--accent-soft), transparent 70%), var(--surface);
+  box-shadow: var(--shadow-card);
+}
+.install-banner__icon {
+  grid-area: icon;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+}
+.install-banner__text {
+  grid-area: text;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  line-height: 1.35;
+}
+.install-banner__text strong {
+  font-family: var(--font-display);
+  font-size: 15px;
+}
+.install-banner__text span {
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+.install-banner__actions {
+  grid-area: actions;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+.install-banner__actions .btn--primary {
+  flex: 1;
+  height: 42px;
+}
+.install-banner__close {
+  flex-shrink: 0;
+  color: var(--text-muted);
+}
+
+@media (min-width: 640px) {
+  .install-banner {
+    grid-template-columns: 44px minmax(0, 1fr) auto;
+    grid-template-areas: 'icon text actions';
+  }
+  .install-banner__actions .btn--primary {
+    flex: none;
+    padding-inline: var(--space-5);
+  }
+}
+
+/* Offline banner */
+.offline-banner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  background: rgba(251, 191, 36, 0.12);
+  border: 1px solid rgba(251, 191, 36, 0.35);
+  color: var(--text);
+  font-size: 14px;
+}
+.offline-banner svg {
+  flex-shrink: 0;
+  color: var(--warn);
+}

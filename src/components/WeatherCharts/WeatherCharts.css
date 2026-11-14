@@ -1,0 +1,107 @@
+.charts__header {
+  flex-wrap: wrap;
+}
+.charts__tabs {
+  max-width: 100%;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.charts__tabs::-webkit-scrollbar {
+  display: none;
+}
+.charts__tabs .segmented__option {
+  white-space: nowrap;
+  min-height: 36px;
+}
+.charts__tabs .segmented__option:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.charts__body {
+  min-height: 280px;
+}
+.charts__tab-short {
+  display: none;
+}
+.charts__empty {
+  color: var(--text-muted);
+  font-size: 14px;
+  padding: var(--space-6) 0;
+  text-align: center;
+}
+
+/* Recharts text colour follows tokens */
+.charts__body .recharts-text {
+  fill: var(--chart-axis);
+}
+.charts__body .recharts-legend-item-text {
+  color: var(--text-secondary) !important;
+}
+
+.chart-tip {
+  background: var(--chart-tooltip-bg);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-pop);
+  padding: 8px 10px;
+  min-width: 140px;
+  font-size: 13px;
+}
+.chart-tip__title {
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: var(--text);
+}
+.chart-tip__row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-secondary);
+}
+.chart-tip__swatch {
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+.chart-tip__name {
+  flex: 1;
+}
+.chart-tip__value {
+  font-weight: 700;
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+}
+
+@media (max-width: 640px) {
+  .charts__header {
+    align-items: stretch;
+    flex-direction: column;
+  }
+  .charts__tabs {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    width: 100%;
+    border-radius: 14px;
+    overflow: visible;
+  }
+  .charts__tabs .segmented__option {
+    white-space: normal;
+    min-height: 44px;
+    padding: 6px 8px;
+    line-height: 1.2;
+    border-radius: 10px;
+    font-size: 12px;
+  }
+  .charts__tab-long {
+    display: none;
+  }
+  .charts__tab-short {
+    display: inline;
+  }
+  .charts__body {
+    min-height: 240px;
+    padding-inline: var(--space-2);
+  }
+}

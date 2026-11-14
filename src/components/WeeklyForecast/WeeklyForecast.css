@@ -1,0 +1,162 @@
+.daily {
+  container-type: inline-size;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Narrow (phones, narrow columns):
+     [day      ] [icon] [ min ▬▬▬ max ]
+     [description · chips (wraps)       ] */
+.daily__row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 28px auto;
+  grid-template-areas:
+    'day icon range'
+    'info info info';
+  align-items: center;
+  gap: 6px var(--space-2);
+  padding: var(--space-3) 4px;
+  border-radius: var(--radius-md);
+  border-bottom: 1px solid var(--border);
+  transition: background-color var(--dur) var(--ease);
+}
+.daily__row:last-child {
+  border-bottom: 0;
+}
+@media (hover: hover) {
+  .daily__row:hover {
+    background: var(--surface-strong);
+  }
+}
+
+.daily__day {
+  grid-area: day;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.daily__weekday {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.25;
+  overflow-wrap: break-word;
+}
+.daily__date {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.daily__icon {
+  grid-area: icon;
+  justify-self: center;
+}
+
+.daily__info {
+  grid-area: info;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px var(--space-2);
+  min-width: 0;
+}
+.daily__desc {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.3;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.daily__meta {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.daily__chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  white-space: nowrap;
+}
+.daily__chip svg {
+  color: var(--accent);
+}
+
+.daily__range {
+  grid-area: range;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  width: 112px;
+}
+.daily__min,
+.daily__max {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 15px;
+  width: 30px;
+  flex-shrink: 0;
+  text-align: center;
+}
+.daily__min {
+  color: var(--text-secondary);
+}
+.daily__bar {
+  position: relative;
+  flex: 1;
+  min-width: 28px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--surface-strong);
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+.daily__bar-fill {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--sky-400), var(--cyan-400), var(--amber-400));
+  min-width: 8px;
+}
+
+/* Wide card: everything on one line. */
+@container (min-width: 560px) {
+  .daily__row {
+    grid-template-columns: 112px 32px minmax(0, 1fr) 180px;
+    grid-template-areas: 'day icon info range';
+    gap: 6px var(--space-3);
+    padding: 10px var(--space-2);
+  }
+  .daily__range {
+    width: auto;
+  }
+}
+
+/* Very narrow cards (320px phones): keep the longest weekday ("Chorshanba",
+   "воскресенье") on one line. */
+@container (max-width: 290px) {
+  .daily__weekday {
+    font-size: 13px;
+  }
+  .daily__range {
+    width: 104px;
+    gap: 4px;
+  }
+  .daily__min,
+  .daily__max {
+    width: 28px;
+    font-size: 14px;
+  }
+}

@@ -1,0 +1,64 @@
+.skel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+.skel__hero,
+.skel__card {
+  padding: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+.skel__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--space-4);
+}
+.skel__row--main {
+  align-items: center;
+}
+.skel__col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.skel__circle {
+  border-radius: 50% !important;
+  flex-shrink: 0;
+}
+.skel__grid-4 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-3);
+}
+.skel__grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-3);
+}
+.skel__strip {
+  display: flex;
+  gap: var(--space-2);
+  overflow: hidden;
+}
+.skel__strip > .skeleton {
+  flex-shrink: 0;
+}
+.skel__two {
+  display: grid;
+  gap: var(--space-4);
+  grid-template-columns: 1fr;
+}
+@media (min-width: 640px) {
+  .skel__grid-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+@media (min-width: 1024px) {
+  .skel__two {
+    grid-template-columns: 1.4fr 1fr;
+  }
+}

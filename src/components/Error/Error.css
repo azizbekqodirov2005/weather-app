@@ -1,0 +1,30 @@
+.error-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-3);
+  padding: var(--space-10) var(--space-6);
+}
+.error-state--boundary {
+  margin: var(--space-10) auto;
+  max-width: 560px;
+}
+.error-state__icon {
+  color: var(--danger);
+}
+.error-state__title {
+  font-size: 20px;
+  font-weight: 800;
+}
+.error-state__text {
+  color: var(--text-secondary);
+  max-width: 460px;
+}
+.error-state__detail {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 12px;
+  color: var(--text-muted);
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
